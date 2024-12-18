@@ -5,36 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Cursor with Hover Effect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Custom cursor outer circle */
-      .cursor-outer {
-        pointer-events: none;
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        border: 2px solid black;
-        border-radius: 50%;
-        transition: transform 0.2s ease-out;
-      }
-
-      /* Custom cursor small dot */
-      .cursor-inner {
-        pointer-events: none;
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        background-color: black;
-        border-radius: 50%;
-        transition: transform 0.05s ease-out, width 0.2s, height 0.2s;
-      }
-
-      /* Hover effect on links and buttons */
-      a:hover ~ #cursor-inner,
-      button:hover ~ #cursor-inner {
-        width: 20px;
-        height: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="./assets/css/cursorMove.style.css" />
   </head>
   <body class="h-screen bg-white overflow-hidden">
     <!-- Custom Cursor Elements -->
@@ -53,39 +24,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script>
-      const cursorOuter = document.getElementById("cursor-outer");
-      const cursorInner = document.getElementById("cursor-inner");
-      const linksAndButtons = document.querySelectorAll("a, button");
-
-      // Cursor move effect
-      document.addEventListener("mousemove", (e) => {
-        const { clientX, clientY } = e;
-
-        // Make the small cursor faster
-        cursorInner.style.transform = `translate(${clientX - 5}px, ${
-          clientY - 5
-        }px)`;
-
-        // Make the big cursor slower (trailing effect)
-        setTimeout(() => {
-          cursorOuter.style.transform = `translate(${clientX - 30}px, ${
-            clientY - 30
-          }px)`;
-        }, 50);
-      });
-
-      // Hover effect to increase inner circle size
-      linksAndButtons.forEach((element) => {
-        element.addEventListener("mouseenter", () => {
-          cursorInner.style.width = "20px";
-          cursorInner.style.height = "20px";
-        });
-        element.addEventListener("mouseleave", () => {
-          cursorInner.style.width = "10px";
-          cursorInner.style.height = "10px";
-        });
-      });
-    </script>
+    <script src="./assets/js/coursorMove.js"></script>
   </body>
 </html>

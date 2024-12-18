@@ -1,0 +1,28 @@
+/* Custom cursor outer circle */
+.cursor-outer {
+  pointer-events: none;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 50%;
+  transition: transform 0.2s ease-out;
+}
+
+/* Custom cursor small dot */
+.cursor-inner {
+  pointer-events: none;
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  transition: transform 0.05s ease-out, width 0.2s, height 0.2s;
+}
+
+/* Hover effect on links and buttons */
+a:hover ~ #cursor-inner,
+button:hover ~ #cursor-inner {
+  width: 20px;
+  height: 20px;
+}
